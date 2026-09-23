@@ -12,9 +12,9 @@ SELECT
     v.precio_unitario,
     (v.cantidad * v.precio_unitario) AS total_venta
 FROM ventas v
-INNER JOIN  clientes c ON v.id_cliente = c.id_cliente
-INNER JOIN  productos p ON v.id_producto = p.id_producto
-INNER JOIN  categorias cat ON p.id_categoria = cat.id_categoria
+LEFT JOIN  clientes c ON v.id_cliente = c.id_cliente
+LEFT JOIN  productos p ON v.id_producto = p.id_producto
+LEFT JOIN  categorias cat ON p.id_categoria = cat.id_categoria
 ORDER BY   v.fecha_venta ASC;
 
 -- Consulta 2: Clientes sin ventas (LEFT JOIN)
